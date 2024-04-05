@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "portfolio-9e6d8"
+  },
+  "targets": {
+    "portfolio-9e6d8": {
+      "hosting": {
+        "myportfolioapp": [
+          "myportfolioapp"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
