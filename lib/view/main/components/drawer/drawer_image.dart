@@ -27,9 +27,10 @@ class DrawerImage extends StatelessWidget {
       child: ClipRRect(
           borderRadius: BorderRadius.circular(50),
           child: Transform.rotate(
+            
               angle: 0.1,
               child: Image.asset(
-                'assets/images/profile.png',
+                'assets/images/profile.jpg',
                 fit: BoxFit.cover,
               ))),
     );
