@@ -1,43 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/home.dart';
+import 'package:portfolio/sections/about/cubit/my_picture_on_hover_cubit.dart';
+import 'package:portfolio/utils/theme.dart';
+import 'package:portfolio/widgets/clickable_icons_hover/cubit/on_hover_icon_cubit.dart';
+import 'package:portfolio/widgets/project_hover/cubit/project_container_on_hover_cubit.dart';
+import 'package:portfolio/widgets/project_hover/getting_projects.dart';
 
-import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:portfolio/res/constants.dart';
-import 'package:portfolio/view/splash/splash_view.dart';
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      options: const FirebaseOptions(
-          apiKey: "AIzaSyAfDhJAEtQRbDK8qTYsCytOsTXjXLLoaH4",
-          authDomain: "portfolio-9e6d8.firebaseapp.com",
-          projectId: "portfolio-9e6d8",
-          storageBucket: "portfolio-9e6d8.appspot.com",
-          messagingSenderId: "79109747806",
-          appId: "1:79109747806:web:4e0f8257b8b7384d2870cf",
-          measurementId: "G-GP97KD7CDW"));
-  runApp(const MyApp());
+void main() {
+  runApp(const PersonalWebsite());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PersonalWebsite extends StatelessWidget {
+  const PersonalWebsite({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          scaffoldBackgroundColor: bgColor,
-          useMaterial3: true,
-          textTheme: GoogleFonts.openSansTextTheme(Theme.of(context).textTheme)
-              .apply(
-                bodyColor: Colors.white,
-              )
-              .copyWith(
-                bodyText1: const TextStyle(color: bodyTextColor),
-                bodyText2: const TextStyle(color: bodyTextColor),
-              ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => MyPictureOnHoverCubit(),
         ),
-        home: const SplashView());
+        BlocProvider(
+          create: (context) => ProjectContainerOnHoverCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ShowAllProjectsCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetProjectsCubit(),
+        ),
+         BlocProvider(
+          create: (context) => OnHoverIconCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Shanul Hakeem | Software Developer",
+        theme: ThemeData(
+          backgroundColor: AppColors.backgroundBlue,
+          canvasColor: AppColors.backgroundBlue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'Calibre',
+        ),
+        home: const Home(),
+      ),
+    );
   }
 }

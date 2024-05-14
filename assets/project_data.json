@@ -1,0 +1,32 @@
+{
+    "projects": [{
+            "id": 1,
+            "title": "Blog App",
+            "description": "Our Flutter app provides secure authentication and easy blog management, online or offline, with Supabase, Bloc, Hive, and GetIt for reliability and flexibility",
+            "url": "https://github.com/shanulhakeemt/blog-app",
+            "tags": ["Bloc", "Supabase", "Flutter"]
+        },
+        {
+            "id": 2,
+            "title": "BMI Calculator",
+            "description": "The Flutter-built BMI Calculator App effectively helps users conveniently track and manage their BMI with user-friendly input and tracking",
+            "url": "https://github.com/shanulhakeemt/BMI-Calculator",
+            "tags": ["Flutter", "Dart"]
+        },
+        {
+            "id": 3,
+            "title": "Reddit Clone App",
+            "description": "RedditClone, a feature-rich Flutter app built with Dart, leverages Riverpod for efficient state management, faithfully emulating the essence of Reddit",
+            "url": "https://github.com/shanulhakeemt/reddit-clone",
+            "tags": ["Riverpod", "Dart", "Firebase"]
+        },
+        {
+            "id": 4,
+            "title": "Portfolio",
+            "description": "Presenting my Flutter portfolio project, showcasing skills, accomplishments, and credentials with responsive design, Bloc, and Cubit integration",
+            "url": "https://github.com/shanulhakeemt/portfolio",
+            "tags": ["Flutter", "Dart", "Cubit"]
+        }
+
+    ]
+}
